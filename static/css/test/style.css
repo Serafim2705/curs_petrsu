@@ -1,0 +1,58 @@
+html,body {
+	margin: 0;
+ 	padding: 0;
+}
+
+section.nextImage {
+	background-color: lemonchiffon;
+}
+
+.conteiner {
+	display: grid;
+	grid-gap: 1em;/*Расстояние между линиями сетки(дорожками) по умолчанию они смежны*/
+	grid-template-columns: 1fr 1fr 1fr;/*явное переопределение сетки в данном случае кол-во столбцов
+																					   	fr — единица длины, которая позволяет создавать гибкие дорожки.
+																							Общий размер фиксированных строк или столбцов вычитается из доступного пространства контейнера-сетки. Оставшееся пространство делится между строками и столбцами с гибкими размерами пропорционально их коэффициенту, например:
+										.grid-container {
+  										  display: grid;
+  										  grid-template-columns: 1fr 1fr 1fr 1fr;  эквивалентно grid-template-columns: 25% 25% 25% 25%;
+										}
+										.grid-container {
+  										  display: grid;
+  										  grid-template-columns: 1fr 2fr 1fr;  эквивалентно grid-template-columns: 25% 50% 25%;
+										}
+																							Если доступное пространство бесконечно (то есть, ширина или высота контейнера-сетки не заданы), дорожки сетки гибкого размера масштабируются по своему содержимому, сохраняя при этом их соответствующие пропорции.
+																							Нотация repeat() представляет повторяющийся фрагмент списка дорожек, что позволяет записать в более компактной форме большое количество одинаковых по размерам столбцов или строк. Общая форма синтаксиса следующая:
+										repeat(число, повторяющаяся дорожка)*/
+}
+
+.img_galery {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;/*Содержимое элемента обрезается, выравниваясь по центру с сохранением пропорций таким образом, чтобы полностью заполнить область контейнера.*/
+	
+}
+
+
+header > nav {
+	background: url(img/image2.jpg);
+}
+
+header.header1, footer.footer1 {
+	background: url(img/space2.jpg);
+	margin-left: 1%;
+	margin-right: 1%;
+	grid-column: 1/4;/*В этом сокращенном выражении grid-column мы эффективно используем grid-column-start и grid-column-end, сообщая, что элемент должен начинаться с линии сетки 1 и заканчиваться на лини 4 сетки.*/
+}
+
+.conteiner > div {
+	padding: 1em;
+}
+
+.conteiner > div.light {
+	padding: 1em;
+}
+
+.column-left{ float: left; width: 33%; text-align: center}
+.column-right{ float: right; width: 33%; text-align: center}
+.column-center{ display: inline-block; width: 33%; text-align: center}

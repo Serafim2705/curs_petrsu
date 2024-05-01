@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://kurs.cs.petrsu.ru/user/identity -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--        <link rel="stylesheet" href="{{url_for('static',filename='css/style_cs.css') }}">-->
+         <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+<!--        <link rel="stylesheet" type="text/css" href="./Курс_ регистрация работы_files/style_cs.css">-->
+<!--        <link media="all" rel="stylesheet" type="text/css" href="./Курс_ регистрация работы_files/webd.min.css">-->
+<!--        <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">-->
+    <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">
+     <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+        <script src="{{url_for('static',filename='js/webd.min1.js') }}"></script>
+<!--        <script src="./Курс_ регистрация работы_files/jquery.min.js"></script>-->
+<!--        <script src="{{url_for('static',filename='js/webd.min.js') }}"></script>-->
+<!--        <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>-->
+<!--        <script src="./Курс_ регистрация работы_files/webd.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <title>
+Курс: регистрация работы
+</title>
+    </head>
+    <body>
+
+        <div align="center" class="header"><img src="{{url_for('static',filename='img/cs_logo.png') }}" align="left" alt=""><div align="right" style="float:right;text-align: center;"><img src="{{url_for('static',filename='img/tux.svg') }}" style="height:80px;" alt="(c) Larry Ewing, Simon Budig, Garrett LeSage" title="(c) Larry Ewing, Simon Budig, Garrett LeSage"><br><span style="font-size:12px;">с 1994 г.</span></div><h1 id="title"><a href="https://cs.petrsu.ru/">Кафедра Информатики и Математического Обеспечения</a></h1><a href="http://www.petrsu.ru/">ПетрГУ</a> |
+<a href="https://imit.petrsu.ru/">ИМиИТ</a> |
+<a href="https://cs.petrsu.ru/department/index.php.ru">О кафедре</a> |
+<a href="https://cs.petrsu.ru/projects.php.ru">Проекты</a> |
+<a href="https://cs.petrsu.ru/lab/index.php.ru">Лаборатория ИТС</a> |
+<a href="https://cs.petrsu.ru/fdpw/index.php.ru">Семинары НФИ/AMICT</a><br><a href="https://cs.petrsu.ru/staff/index.php.ru">Сотрудники</a> |
+<a href="https://cs.petrsu.ru/studies/index.php.ru">Учебный процесс</a> |
+<a href="https://cs.petrsu.ru/studies/tabel_kalendar_22-23.pdf">Табель-календарь</a> |
+<a href="https://cs.petrsu.ru/studies/kurs/kurs.php.ru">Курсовые и выпускные работы</a><br><a href="https://cs.petrsu.ru/facilities/index.php.ru">Вычислительные ресурсы</a> |
+<a href="https://cs.petrsu.ru/publications/index.php.ru">Публикации</a> |
+<a href="https://cs.petrsu.ru/news/index.php.ru">Архив новостей</a> |
+<a href="https://cs.petrsu.ru/contact/index.php.ru">Контактная информация</a><a href="https://cs.petrsu.ru/contact/index.php.en"> (English)</a><br clear="all"></div>
+        <div class="content">
+            <hr>
+            <h1><a href="https://kurs.cs.petrsu.ru/" id="webd_title">Система <span style="color:#0E0EB3;">Курс</span></a></h1>
+            
+<div id="webd_user">
+    <div class="webd_user_header">
+    <a href="/" id="search_link">К поиску и просмотру работ</a> |
+    <a href="https://kurs.cs.petrsu.ru/templates" id="templates_link">Шаблоны отчетов и
+        презентаций</a>
+    
+    |
+    
+    <a href="/register" id="identity_link" class="user_no_file">Регистрация
+        работы</a> |
+    <a href="/upload" id="upload_link">Загрузка файлов</a> |
+    
+    <a href="/login/exit">Выход</a>
+    
+</div>
+
+    <h2>Здравствуйте, {{ stud_name }}!</h2>
+    <h2>Кафедра : {{ stud_name }}</h2>
+    <h3>Добро пожаловать на страницу регистрации темы курсовых работ.</h3>
+    <fieldset name="study">
+      <legend>Выберите доступные направления обучения:</legend>
+
+      <div>
+        <input type="checkbox" id="isit" name="isit" checked />
+        <label for="scales">ИСиТ</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="pmi" name="pmi" />
+        <label for="horns">ПМиИ</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="math" name="math" />
+        <label for="horns">Математика</label>
+      </div>
+       <div>
+        <input type="checkbox" id="prep_math" name="prep_math" />
+        <label for="horns">Математика (преподаватели)</label>
+      </div>
+     <div>
+        <input type="checkbox" id="prog_eng" name="prog_eng" />
+        <label for="horns">Программная инженерия</label>
+      </div>
+    </fieldset>
+
+        <fieldset name="curs">
+      <legend>Выберите для студентов каких курсов доступна данная тема:</legend>
+
+      <div>
+        <input type="checkbox" id="2" name="2" checked />
+        <label for="scales">2</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="3" name="3" />
+        <label for="horns">3</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="4" name="4" />
+        <label for="horns">4</label>
+      </div>
+       <div>
+        <input type="checkbox" id="5" name="5" />
+        <label for="horns">5 (1й курс магистратура)</label>
+      </div>
+     <div>
+        <input type="checkbox" id="6" name="6" />
+        <label for="horns">6 (2й курс магистратура)</label>
+      </div>
+    </fieldset>
+    <div>
+			<label for="user_title" class="user_form_label" style="vertical-align:top"><span class="star">*</span>Тема работы:</label>
+			<textarea id="user_title" name="title" class="user_title inp" rows="3"
+                      style="width:400px" maxlength="250" required="required"></textarea>
+    </div>
+    <div>
+			<label for="user_description" class="user_form_label" style="vertical-align:top"><span class="star">*</span>Описание:</label>
+			<textarea id="user_description" name="description" class="user_title inp" rows="6"
+                      style="width:400px" maxlength="550" required="required"></textarea>
+    </div>
+   <div>
+			<label for="user_contacts" class="user_form_label" style="vertical-align:top"><span class="star">*</span>Контакты для связи:</label>
+			<textarea id="user_contacts" name="contacts"  rows="2"
+                      style="width:400px" maxlength="200" required="required"></textarea>
+    </div>
+   <label for="num_slots">Макс. кол-во мест:(оставьте пустым для снятия ограничения)</label>
+    <input type="text" name="slots" id="num_slots" class="inp txt_inp">
+
+<!--    <p> Выберите календарный год начала курсовой работы : </p>-->
+<!--    <ul>-->
+<!--     {% for e in available_years %}-->
+<!--    <li> <a href="/register/{{e.year}}">{{e.year}}</a> </li>-->
+
+<!--    {% endfor %}-->
+<!--    </ul>-->
+
+</div>
+
+            <hr>
+        </div>
+        <div class="footer">
+            <div style="width:450px;">
+            <address>
+                <!--i>Замечания по работе сервера: <a href="mailto:webmaster@cs.petrsu.ru">webmaster@cs.karelia.ru</a></i><br/-->
+                <i>Вопросы и замечания по системе Курс: <a href="mailto:chistyak@cs.petrsu.ru">Д.Б.Чистяков</a></i><br>
+                <i style="display:none">Последние изменения: <span id="webd_last_edited"></span></i>
+            </address>
+            </div>
+            <div style="width:550px; text-align:right; float:right;">
+                <i>Руководитель работы: заведующий кафедрой ИМО, Ю.А.Богоявленский</i><br>
+                <i>Разработчики: А.А.Андреев, В.М.Димитров</i><br>
+                <i>Системный администратор: М.А.Крышень</i>
+            </div>
+        </div>
+    
+</body></html>

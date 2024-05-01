@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://kurs.cs.petrsu.ru/#webd_form -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!--<link rel="stylesheet" type="text/css" href="./Система Курс_files/style_cs.css"> -->
+        <script src="{{url_for('static',filename='js/webd.min1.js') }}"></script>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+        <!--<link media="all" rel="stylesheet" type="text/css" href="./Система Курс_files/webd.min.css"> -->
+        <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">
+
+    </head>
+    <body>
+
+
+<!--     <p><a name="start_table1"></a></p>-->
+        <div id="start_table"></div>
+    {% if data is defined %}
+
+        {% set nsy = namespace(year1="") %}
+        {% set nsg = namespace(group1="") %}
+        {% set nsd = namespace(dep1="") %}
+        {% set nsh = namespace(header=False) %}
+        {% set nsf=namespace(first=True) %}
+        {% set nsc=namespace(counter=0) %}
+        {% for e in data %}
+
+            {% set nsc.counter=nsc.counter+1 %}
+            {% if nsy.year1!=e.year %}
+
+                {% set nsc.counter=1 %}
+                {% if nsf.first==False %}
+
+                     </table>
+                </div></div>
+                {% endif %}
+
+                {% set nsy.year1 =e.year %}
+
+                {% set nsd.dep1 =e.departament %}
+                {% set nsg.group1 =e.group %}
+                {% set nsh.header=True %}
+                <div>
+                <h2 >Год {{ nsy.year1 }}</h2>
+                    <div>
+                <h3 >Кафедра {{ e.departament }}</h3>
+                <h4 >Группа {{ e.group }}</h4>
+            {% endif %}
+
+            {% if nsd.dep1!=e.departament %}
+                {% if nsf.first==False %}
+
+                     </table>
+                        </div>
+                {% endif %}
+                 {% set nsc.counter=1 %}
+                {% set nsd.dep1=e.departament %}
+                {% set nsg.group1 =e.group %}
+                {% set nsh.header=True %}
+                <div>
+                <h3>Кафедра {{ e.departament }}</h3>
+                <h4 >Группа {{ e.group }}</h4>
+            {% endif %}
+
+            {% if nsg.group1!=e.group %}
+                {% if nsf.first==False %}
+
+                     </table>
+                {% endif %}
+                 {% set nsc.counter=1 %}
+                {% set nsg.group1 =e.group %}
+                {% set nsh.header=True %}
+                <h4 >Группа {{ e.group }}</h4>
+            {% endif %}
+            {% set nsf.first=False %}
+            {% if nsh.header==True %}
+
+             <table class="webd_result_table">
+                <caption class="webd_rt_caption"></caption>
+                <tbody><tr class="webd_rt_head">
+                    <th class="webd_rt_head_cell webd_rt_num_cell">
+                        №
+                    </th>
+                    <th class="webd_rt_head_cell webd_rt_title_cell">
+                        Название работы
+                    </th>
+                    <th class="webd_rt_head_cell webd_rt_name_cell">
+                        Ф.И.О. студента
+                    </th>
+
+                    <th class="webd_rt_head_cell webd_rt_adviser_cell">
+                        Ф.И.О. руководителя
+                    </th>
+                    <!--th class="webd_rt_head_cell webd_rt_intrep_cell">
+                        Пр. отчет
+                    </th>
+                    <th class="webd_rt_head_cell webd_rt_intsl_cell">
+                        Пр. ЭП
+                    </th>
+                    <th class="webd_rt_head_cell webd_rt_rep_cell">
+                        Oтчет
+                    </th>
+                    <th class="webd_rt_head_cell webd_rt_sl_cell">
+                        ЭП
+                    </th-->
+
+                    <th class="webd_rt_head_cell webd_rt_sl_cell">
+                        Пр. отчет
+                    </th>
+
+                    <th class="webd_rt_head_cell webd_rt_sl_cell">
+                        Пр. ЭП
+                    </th>
+
+                    <th class="webd_rt_head_cell webd_rt_sl_cell">
+                        Отчет
+                    </th>
+
+                    <th class="webd_rt_head_cell webd_rt_sl_cell">
+                        ЭП
+                    </th>
+                    </tr>
+                {% set nsh.header=False %}
+
+            {% endif %}
+                     <tr class="webd_rt_row">
+                    <td class="webd_rt_cell webd_rt_num_cell">{{nsc.counter}}</td>
+                    <td class="webd_rt_cell webd_rt_title_cell">{{e.title}}</td>
+                    <td class="webd_rt_cell webd_rt_name_cell" title="yushkov">{{e.studentName}}</td>
+
+                    <td class="webd_rt_cell webd_rt_adviser_cell">{{e.tutor_name}}</td>
+
+                   {% if file_exists('report.pdf',e.student,e.year) %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_has_file_in_time">
+
+                        Есть
+
+                    </td>
+                        {% else %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+                    Нет
+                    </td>
+                    {% endif %}
+
+                         {% if file_exists('slides.pdf',e.student,e.year) %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_has_file_in_time">
+
+                        Есть
+
+                    </td>
+                        {% else %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+                    Нет
+
+                    </td>
+                    {% endif %}
+
+                         {% if file_exists('final_report.pdf',e.student,e.year) %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_has_file_in_time">
+
+                        Есть
+
+                    </td>
+                        {% else %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+                    Нет
+                    </td>
+                    {% endif %}
+
+                                     {% if file_exists('final_slides.pdf',e.student,e.year) %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_has_file_in_time">
+
+                        Есть
+
+                    </td>
+                        {% else %}
+                    <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+                        Нет
+                    </td>
+                    {% endif %}
+                     </tr>
+
+        {% endfor %}
+                </table>
+        </div></div>
+
+
+    {% endif %}
+
+<!--                <a href="#start_table">Перейти к моему элементу</a>-->
+</body></html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://kurs.cs.petrsu.ru/#webd_form -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!--<link rel="stylesheet" type="text/css" href="./Система Курс_files/style_cs.css"> -->
+
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+        <!--<link media="all" rel="stylesheet" type="text/css" href="./Система Курс_files/webd.min.css"> -->
+        <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">
+        <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+        <script src="{{url_for('static',filename='js/webd.min1.js') }}"></script>
+<!--        <script src="./Система Курс_files/jquery.min.js"></script>-->
+<!--        <script src="./Система Курс_files/webd.min.js"></script>-->
+        <script type ="text/javascript">
+            $(document).on('ready',function(){
+            if(sessionStorage.getItem('last_entry')){
+                $("#webd_result").val(sessionStorage.getItem('last_entry'));
+            }
+
+            $("#webd_result").on("keypress",function(){
+                sessionStorage.setItem('last_entry',$(this).val());
+            });
+            });
+        </script>
+        <title>
+Система Курс
+</title>
+    </head>
+    <body>
+
+        <div align="center" class="header"><img src="{{url_for('static',filename='img/cs_logo.png') }}" align="left" alt=""><div align="right" style="float:right;text-align: center;"><img src="{{url_for('static',filename='img/tux.svg') }}" style="height:80px;" alt="(c) Larry Ewing, Simon Budig, Garrett LeSage" title="(c) Larry Ewing, Simon Budig, Garrett LeSage"><br><span style="font-size:12px;">с 1994 г.</span></div><h1 id="title"><a href="https://cs.petrsu.ru/">Кафедра Информатики и Математического Обеспечения</a></h1><a href="http://www.petrsu.ru/">ПетрГУ</a> |
+<a href="https://imit.petrsu.ru/">ИМиИТ</a> |
+<a href="https://cs.petrsu.ru/department/index.php.ru">О кафедре</a> |
+<a href="https://cs.petrsu.ru/projects.php.ru">Проекты</a> |
+<a href="https://cs.petrsu.ru/lab/index.php.ru">Лаборатория ИТС</a> |
+<a href="https://cs.petrsu.ru/fdpw/index.php.ru">Семинары НФИ/AMICT</a><br><a href="https://cs.petrsu.ru/staff/index.php.ru">Сотрудники</a> |
+<a href="https://cs.petrsu.ru/studies/index.php.ru">Учебный процесс</a> |
+<a href="https://cs.petrsu.ru/studies/tabel_2021-2022.pdf">Табель-календарь</a> |
+<a href="https://cs.petrsu.ru/studies/kurs/kurs.php.ru">Курсовые и выпускные работы</a><br><a href="https://cs.petrsu.ru/facilities/index.php.ru">Вычислительные ресурсы</a> |
+<a href="https://cs.petrsu.ru/publications/index.php.ru">Публикации</a> |
+<a href="https://cs.petrsu.ru/news/index.php.ru">Архив новостей</a> |
+<a href="https://cs.petrsu.ru/contact/index.php.ru">Контактная информация</a> |
+<a href="https://cs.petrsu.ru/news/index.php.en">English</a><br clear="all"></div>
+        <div class="content">
+            <hr>
+            <h1><a href="https://kurs.cs.petrsu.ru/" id="webd_title">Система <span style="color:#0E0EB3;">Курс</span></a></h1>
+            
+<div id="webd">
+    <div id="webd_left_side" class="webd_sides">
+        <div class="webd_user_header">
+    <a href="https://kurs.cs.petrsu.ru/#webd_form" id="search_link">К поиску и просмотру работ</a> |
+    <a href="https://kurs.cs.petrsu.ru/templates" id="templates_link">Шаблоны отчетов и
+        презентаций</a>
+    
+    |
+    
+    <a href="/register" id="identity_link">Регистрация
+        работы</a> |
+    <a href="https://kurs.cs.petrsu.ru/user/file" id="upload_link">Загрузка файлов</a> |
+    
+    <a href="https://kurs.cs.petrsu.ru/login/exit">Выход</a>
+    
+</div>
+
+        <p>Система предназначена для учета курсовых и выпускных работ студентов,
+            загрузки, хранения, поиска и демонстрации файлов презентаций и отчетов.</p>
+
+        <p>Для корректного учета работ студент обязан в начале учебного года <b>зарегистрировать
+            данные о работе</b>. Это необходимо, поскольку возможны изменения руководителя и/или темы работы.
+            Если изменений по сравнению с предыдущим учебным годом не было, то регистрация выполняется
+            нажатием кнопки "Скопировать" на странице регистрации. Для обеспечения актуальности данных о работе,
+            выполняемой в текущем учебном году, их следует корректировать.
+            Регистрацию желательно выполнить сразу после согласования темы работы с руководителем.</p>
+
+        <p>Студент обязан <b>загрузить файлы презентации и отчета</b> (формат только PDF):
+        </p><ul>
+            <li>промежуточные — 2, 3 и 5 курсы до 30 декабря текущего года, выпускники 4 и 6 курсов —
+                за два дня до начала сессии согласно графику учебного процесса текущего учебного года;
+            </li>
+            <li>окончательные — до даты защиты курсовых работ или предзащиты выпускных работ.</li>
+        </ul>
+        Правила, шаблоны и инструменты подготовки презентаций и отчетов см. в разделах 2 и 3 документа
+        <a href="http://www.cs.petrsu.ru/studies/kurs/kurs.php.ru">Курсовые и выпускные работы</a>
+        соответственно.<p></p>
+
+        <p>Функции регистрации и загрузки файлов отчетов доступны только студентам,
+            имеющим учетные записи (логин, пароль) в вычислительной системе кафедры ИМО,
+            после входа в систему «Курс».</p>
+    </div>
+    <!--div id="webd_right_side" class="webd_sides">
+        Умен ты или глуп,<br/>
+        Велик ты или мал,<br/>
+        Не знаем мы, пока<br/>
+        Ты слово не сказал!<br/>
+        <i>Саади, персидский поэт и мыслитель XIII в. </i>
+    </div-->
+    
+    <!--p>Инструкции:
+        <ul>
+            <li><a href="info_correction_instruction.pdf">по исправлению курса и группы студента;</a></li>
+            <li><a href="file_adding_instruction.pdf">по внесению файлов студента администратором.</a></li>
+        </ul>
+        </p-->
+    <div id="prv_year_instruction_button" onclick="togglePrvYearInstruction();">
+        Инструкция по редактированию прошлых лет ↓</div>
+    <div id="prv_year_instruction_content" class="hidden">
+        <p>Для редактирования данных за прошлые учебные года нужно:</p>
+        <ul>
+            <li>авторизоваться в системе курс;</li>
+            <li>перейти на вкладку "Регистрация работы";</li>
+            <li>добавить в адресной строке браузера "/&lt;год начала работы&gt;";</li>
+            <li>перейти по получившемуся адресу;</li>
+            <li>откроется аналогичная страница регистрации работы, но за другой год.</li>
+        </ul>
+        <p>Например, изначальная ссылка выглядит так:<br>
+            https://kurs.cs.petrsu.ru/user/identity<br>
+            ссылка для редактирования работы за 2019-2020 учебный год будет выглядеть так:<br>
+            https://kurs.cs.petrsu.ru/user/identity/2019</p>
+
+        <p>Загрузка файлов за предыдущие года производится аналогично.
+            Изначальная ссылка для загрузки файлов:<br>
+            https://kurs.cs.petrsu.ru/user/file<br>
+            Ссылка для загрузки файлов за 2019-2020 учебный год:<br>
+            https://kurs.cs.petrsu.ru/user/file/2019</p>
+    </div>
+
+    <form id="webd_form" method="POST">
+        <h2>Поиск и просмотр работ</h2>
+        <div class="labeled_select" title="Для списка доступен множественный выбор. Для этого нужно либо провести указателем с зажатой левой кнопкой мыши по смежным группам, либо выбрать отдельностоящие группы одиночным нажатием на левую кнопку мыши с зажатой клавишей Ctrl.">
+            <label for="inp_year">Календарный год начала работы</label> <br>
+            <select name="years" id="inp_year" class="inp txt_inp" size="7" multiple="multiple">
+                
+                <option value="2022" selected="selected">2022</option>
+                
+                <option value="2021">2021</option>
+                
+                <option value="2020">2020</option>
+                
+                <option value="2019">2019</option>
+                
+                <option value="2018">2018</option>
+                
+                <option value="2017">2017</option>
+                
+                <option value="2016">2016</option>
+                
+                <option value="2015">2015</option>
+                
+                <option value="2014">2014</option>
+                
+                <option value="2013">2013</option>
+                
+                <option value="2012">2012</option>
+                
+                <option value="">Все</option>
+            </select>
+        </div>
+        <div class="labeled_select" title="Для списка доступен множественный выбор. Для этого нужно либо провести указателем с зажатой левой кнопкой мыши по смежным группам, либо выбрать отдельностоящие группы одиночным нажатием на левую кнопку мыши с зажатой клавишей Ctrl.">
+            <label for="inp_group">Группа</label> <br>
+            <select name="groups" id="inp_group" class="inp txt_inp" size="7" multiple="multiple">
+                <option value="" selected="selected">Все</option>
+                
+                <option value="221-ZИС">221-ZИС</option>
+                
+                <option value="22101">22101</option>
+                
+                <option value="22102">22102</option>
+                
+                <option value="22103">22103</option>
+                
+                <option value="22104">22104</option>
+                
+                <option value="22105">22105</option>
+                
+                <option value="22106">22106</option>
+                
+                <option value="22107">22107</option>
+                
+                <option value="22108">22108</option>
+                
+                <option value="222-ZИС">222-ZИС</option>
+                
+                <option value="22201">22201</option>
+                
+                <option value="22202">22202</option>
+                
+                <option value="22203">22203</option>
+                
+                <option value="22204">22204</option>
+                
+                <option value="22205">22205</option>
+                
+                <option value="22206">22206</option>
+                
+                <option value="22207">22207</option>
+                
+                <option value="22208">22208</option>
+                
+                <option value="223-ZИС">223-ZИС</option>
+                
+                <option value="22301">22301</option>
+                
+                <option value="22302">22302</option>
+                
+                <option value="22303">22303</option>
+                
+                <option value="22304">22304</option>
+                
+                <option value="22305">22305</option>
+                
+                <option value="22306">22306</option>
+                
+                <option value="22307">22307</option>
+                
+                <option value="22308">22308</option>
+                
+                <option value="22401">22401</option>
+                
+                <option value="22402">22402</option>
+                
+                <option value="22403">22403</option>
+                
+                <option value="22404">22404</option>
+                
+                <option value="22405">22405</option>
+                
+                <option value="22406">22406</option>
+                
+                <option value="22407">22407</option>
+                
+                <option value="22408">22408</option>
+                
+                <option value="225-ZИС">225-ZИС</option>
+                
+                <option value="22501">22501</option>
+                
+                <option value="22502">22502</option>
+                
+                <option value="22503">22503</option>
+                
+                <option value="22505">22505</option>
+                
+                <option value="22508">22508</option>
+                
+                <option value="22509">22509</option>
+                
+                <option value="22601">22601</option>
+                
+                <option value="22603">22603</option>
+                
+                <option value="22605">22605</option>
+                
+                <option value="22608">22608</option>
+                
+                <option value="22609">22609</option>
+                
+            </select>
+        </div>
+
+        <br>
+        <label for="inp_department">Кафедра</label>
+        <select name="department" id="inp_department" class="inp txt_inp">
+            <option value="" selected="selected">Все</option>
+            
+            <option value="ПМиК">ПМиК</option>
+            
+            <option value="ИМО">ИМО</option>
+            
+            <option value="ГиТ">ГиТ</option>
+            
+            <option value="МА">МА</option>
+            
+            <option value="ТВиАД">ТВиАД</option>
+            
+            <option value="ТМОМИ">ТМОМИ</option>
+            
+        </select>
+
+        <br>
+
+        <label for="inp_student">Фамилия студента</label>
+        <input type="text" name="name" id="inp_student" class="inp txt_inp">
+
+        <br>
+
+        <label for="inp_adviser">Руководитель</label>
+        <input type="text" name="adviser-name" id="inp_adviser" class="inp txt_inp">
+
+        <br>
+        <div id="webd_form_show_additional" onclick="showHideAdditional();">Меньше ↑</div>
+
+        <div id="webd_form_additional" class="">
+            <label style="display:none" for="inp_have_index">Студенты</label>
+            <select name="have-index" id="inp_have_index" class="inp txt_inp hidden">
+                <option value="registered" selected="selected">Зарегистрировавшие работы</option>
+                <option value="unregistered">Не зарегистрировавшие работы</option>
+                <option value="all">Все</option>
+            </select>
+
+            <!--label for="inp_have_index">Только зарегистрированные работы</label>
+            <input type="checkbox" name="have-index" id="inp_have_index" value="true" checked="checked" class="inp" /-->
+
+            <!--br/-->
+
+            <label for="group_method">Сгруппировать</label>
+            <select name="group-method" id="group_method" class="inp txt_inp">
+                <option value="default" selected="selected">По годам, кафедрам, группам</option>
+                <option value="flatten">Общим списком</option>
+            </select>
+
+            <br>
+
+            <label for="sort_method">Отсортировать по</label>
+            <select name="sort-method" id="sort_method" class="inp txt_inp">
+                <option value="by-student-name" selected="selected">Имени студента</option>
+                <option value="by-adviser-name">Имени руководителя</option>
+                <option value="by-identity-date">Дате регистрации</option>
+            </select>
+
+            <br>
+            <label for="sort_order">Порядок сортировки</label>
+            <select name="sort-order" id="sort_order" class="inp txt_inp">
+                <option value="ascending" selected="selected">По возрастанию</option>
+                <option value="descending">По убыванию</option>
+            </select>
+            <!--br/>
+			<label>Распоряжение об утверждении тем</label>
+			<input type="submit" id="btn_directive_bak" value="Для бакалавриата" class="inp"
+				   formaction="/query/directive_bak" formtarget="_blank"
+				   title="Генерирует RTF-файл по студентам бакалавриата, удовлетворяющих введенным в форму 'Поиск работ' параметрам."/>
+			<input type="submit" id="btn_directive_mag" value="Для магистратуры" class="inp"
+				   formaction="/query/directive_mag" formtarget="_blank"
+				   title="Генерирует RTF-файл по студентам магистратуры, удовлетворяющих введенным в форму 'Поиск работ' параметрам."/-->
+
+            <br>
+        </div>
+
+        <input type="submit" id="btn_search" value="Найти" onclick="saveFields()" class="inp" title="Выводит таблицу с информацией о студентах, удовлетворяющих введенным в форму &#39;Поиск работ&#39; параметрам.">
+        <input type="submit" id="btn_report" value="Отчет" class="inp" formaction="/query/report" formtarget="_blank" title="Генерирует PDF-файл с информацией о студентах, удовлетворяющих введенным в форму &#39;Поиск работ&#39; параметрам.">
+        <input type="submit" id="btn_missing_report" value="Список не зарегистрированных" class="inp" formaction="/query/missing" formtarget="_blank" title="Генерирует PDF-файл с информацией о студентах, не зарегистрировавших работы в текущем году">
+    </form>
+
+    <div id="webd_result"></div>
+    
+</div>
+
+            <hr>
+        </div>
+        <div class="footer">
+            <div style="width:450px;">
+            <address>
+                <!--i>Замечания по работе сервера: <a href="mailto:webmaster@cs.petrsu.ru">webmaster@cs.karelia.ru</a></i><br/-->
+                <i>Вопросы и замечания по системе Курс: <a href="mailto:chistyak@cs.petrsu.ru">Д.Б.Чистяков</a></i><br>
+                <i style="display:none">Последние изменения: <span id="webd_last_edited"></span></i>
+            </address>
+            </div>
+            <div style="width:550px; text-align:right; float:right;">
+                <i>Руководитель работы: заведующий кафедрой ИМО, Ю.А.Богоявленский</i><br>
+                <i>Разработчики: А.А.Андреев, В.М.Димитров</i><br>
+                <i>Системный администратор: М.А.Крышень</i>
+            </div>
+        </div>
+
+<!--        {% for e in message %}-->
+<!--<p> {{e.data}}</p>-->
+<!--{% endfor %}-->
+    {% if data is defined %}
+
+
+    {% for e in data %}
+    <h3 >Кафедра {{ e }}</h3>
+
+                {% for e2 in data[e] %}
+                 <h3 >Группа {{ e2 }}</h3>
+                        <table class="webd_result_table">
+            <caption class="webd_rt_caption"></caption>
+            <tbody><tr class="webd_rt_head">
+                <th class="webd_rt_head_cell webd_rt_num_cell">
+                    №
+                </th>
+                <th class="webd_rt_head_cell webd_rt_title_cell">
+                    Название работы
+                </th>
+                <th class="webd_rt_head_cell webd_rt_name_cell">
+                    Ф.И.О. студента
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_adviser_cell">
+                    Ф.И.О. руководителя
+                </th>
+                <!--th class="webd_rt_head_cell webd_rt_intrep_cell">
+                    Пр. отчет
+                </th>
+                <th class="webd_rt_head_cell webd_rt_intsl_cell">
+                    Пр. ЭП
+                </th>
+                <th class="webd_rt_head_cell webd_rt_rep_cell">
+                    Oтчет
+                </th>
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    ЭП
+                </th-->
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Пр. отчет
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Пр. ЭП
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Отчет
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    ЭП
+                </th>
+                {% for e3 in data[e][e2] %}
+
+	</tr>
+      <tr class="webd_rt_row">
+        <td class="webd_rt_cell webd_rt_num_cell"></td>
+        <td class="webd_rt_cell webd_rt_title_cell">{{e3.title}}</td>
+        <td class="webd_rt_cell webd_rt_name_cell" title="yushkov">{{e3.studentName}}</td>
+
+        <td class="webd_rt_cell webd_rt_adviser_cell">{{e3.tutor_name}}</td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+{% endfor %}
+
+        </table>
+    {% endfor %}
+{% endfor %}
+    {% endif %}
+    {% if data2 is defined %}
+        {% for year in data2 %}
+    <h3 >Год {{ year }}</h3>
+        {% for e in data2[year] %}
+    <h4 >Кафедра {{ e }}</h4>
+
+                {% for e2 in data2[year][e] %}
+                 <h3 >Группа {{ e2 }}</h3>
+                        <table class="webd_result_table">
+            <caption class="webd_rt_caption"></caption>
+            <tbody><tr class="webd_rt_head">
+                <th class="webd_rt_head_cell webd_rt_num_cell">
+                    №
+                </th>
+                <th class="webd_rt_head_cell webd_rt_title_cell">
+                    Название работы
+                </th>
+                <th class="webd_rt_head_cell webd_rt_name_cell">
+                    Ф.И.О. студента
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_adviser_cell">
+                    Ф.И.О. руководителя
+                </th>
+                <!--th class="webd_rt_head_cell webd_rt_intrep_cell">
+                    Пр. отчет
+                </th>
+                <th class="webd_rt_head_cell webd_rt_intsl_cell">
+                    Пр. ЭП
+                </th>
+                <th class="webd_rt_head_cell webd_rt_rep_cell">
+                    Oтчет
+                </th>
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    ЭП
+                </th-->
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Пр. отчет
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Пр. ЭП
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Отчет
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    ЭП
+                </th>
+                {% for e3 in data2[year][e][e2] %}
+
+	</tr>
+      <tr class="webd_rt_row">
+        <td class="webd_rt_cell webd_rt_num_cell"></td>
+        <td class="webd_rt_cell webd_rt_title_cell">{{e3.title}}</td>
+        <td class="webd_rt_cell webd_rt_name_cell" title="yushkov">{{e3.studentName}}</td>
+
+        <td class="webd_rt_cell webd_rt_adviser_cell">{{e3.tutor_name}}</td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+{% endfor %}
+
+        </table>
+    {% endfor %}
+{% endfor %}
+        {% endfor %}
+    {% endif %}
+
+     {% if data3 is defined %}
+    <table class="webd_result_table">
+            <caption class="webd_rt_caption"></caption>
+            <tbody><tr class="webd_rt_head">
+                <th class="webd_rt_head_cell webd_rt_num_cell">
+                    №
+                </th>
+                <th class="webd_rt_head_cell webd_rt_title_cell">
+                    Название работы
+                </th>
+                <th class="webd_rt_head_cell webd_rt_name_cell">
+                    Ф.И.О. студента
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_adviser_cell">
+                    Ф.И.О. руководителя
+                </th>
+                <!--th class="webd_rt_head_cell webd_rt_intrep_cell">
+                    Пр. отчет
+                </th>
+                <th class="webd_rt_head_cell webd_rt_intsl_cell">
+                    Пр. ЭП
+                </th>
+                <th class="webd_rt_head_cell webd_rt_rep_cell">
+                    Oтчет
+                </th>
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    ЭП
+                </th-->
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Пр. отчет
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Пр. ЭП
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    Отчет
+                </th>
+
+                <th class="webd_rt_head_cell webd_rt_sl_cell">
+                    ЭП
+                </th>
+
+
+	</tr>
+             {% for e in data3 %}
+      <tr class="webd_rt_row">
+        <td class="webd_rt_cell webd_rt_num_cell"></td>
+        <td class="webd_rt_cell webd_rt_title_cell">{{e.title}}</td>
+        <td class="webd_rt_cell webd_rt_name_cell" title="yushkov">{{e.studentName}}</td>
+
+        <td class="webd_rt_cell webd_rt_adviser_cell">{{e.tutor_name}}</td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+        <td class="webd_rt_cell webd_rt_intsl_cell webd_rt_no_file">
+
+        </td>
+
+{% endfor %}
+           </table>
+          {% endif %}
+
+
+<!--        {% with messages = get_flashed_messages() %}-->
+<!--   {% if messages %}-->
+<!--      {% for message in messages %}-->
+<!--         <text color="#666666">{{ message }}</text>-->
+<!--      {% endfor %}-->
+<!--   {% endif %}-->
+<!--{% endwith %}-->
+</body></html>

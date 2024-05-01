@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://kurs.cs.petrsu.ru/user/identity -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--        <link rel="stylesheet" href="{{url_for('static',filename='css/style_cs.css') }}">-->
+         <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+<!--        <link rel="stylesheet" type="text/css" href="./Курс_ регистрация работы_files/style_cs.css">-->
+<!--        <link media="all" rel="stylesheet" type="text/css" href="./Курс_ регистрация работы_files/webd.min.css">-->
+<!--        <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">-->
+    <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">
+     <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+        <script src="{{url_for('static',filename='js/webd.min1.js') }}"></script>
+<!--        <script src="./Курс_ регистрация работы_files/jquery.min.js"></script>-->
+<!--        <script src="{{url_for('static',filename='js/webd.min.js') }}"></script>-->
+<!--        <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>-->
+<!--        <script src="./Курс_ регистрация работы_files/webd.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <title>
+Курс: регистрация работы
+</title>
+    </head>
+    <body>
+
+        <div align="center" class="header"><img src="{{url_for('static',filename='img/cs_logo.png') }}" align="left" alt=""><div align="right" style="float:right;text-align: center;"><img src="{{url_for('static',filename='img/tux.svg') }}" style="height:80px;" alt="(c) Larry Ewing, Simon Budig, Garrett LeSage" title="(c) Larry Ewing, Simon Budig, Garrett LeSage"><br><span style="font-size:12px;">с 1994 г.</span></div><h1 id="title"><a href="https://cs.petrsu.ru/">Кафедра Информатики и Математического Обеспечения</a></h1><a href="http://www.petrsu.ru/">ПетрГУ</a> |
+<a href="https://imit.petrsu.ru/">ИМиИТ</a> |
+<a href="https://cs.petrsu.ru/department/index.php.ru">О кафедре</a> |
+<a href="https://cs.petrsu.ru/projects.php.ru">Проекты</a> |
+<a href="https://cs.petrsu.ru/lab/index.php.ru">Лаборатория ИТС</a> |
+<a href="https://cs.petrsu.ru/fdpw/index.php.ru">Семинары НФИ/AMICT</a><br><a href="https://cs.petrsu.ru/staff/index.php.ru">Сотрудники</a> |
+<a href="https://cs.petrsu.ru/studies/index.php.ru">Учебный процесс</a> |
+<a href="https://cs.petrsu.ru/studies/tabel_kalendar_22-23.pdf">Табель-календарь</a> |
+<a href="https://cs.petrsu.ru/studies/kurs/kurs.php.ru">Курсовые и выпускные работы</a><br><a href="https://cs.petrsu.ru/facilities/index.php.ru">Вычислительные ресурсы</a> |
+<a href="https://cs.petrsu.ru/publications/index.php.ru">Публикации</a> |
+<a href="https://cs.petrsu.ru/news/index.php.ru">Архив новостей</a> |
+<a href="https://cs.petrsu.ru/contact/index.php.ru">Контактная информация</a><a href="https://cs.petrsu.ru/contact/index.php.en"> (English)</a><br clear="all"></div>
+        <div class="content">
+            <hr>
+            <h1><a href="https://kurs.cs.petrsu.ru/" id="webd_title">Система <span style="color:#0E0EB3;">Курс</span></a></h1>
+            
+<div id="webd_user">
+    <div class="webd_user_header">
+    <a href="/" id="search_link">К поиску и просмотру работ</a> |
+    <a href="https://kurs.cs.petrsu.ru/templates" id="templates_link">Шаблоны отчетов и
+        презентаций</a>
+    
+    |
+    
+    <a href="/register" id="identity_link" class="user_no_file">Регистрация
+        работы</a> |
+    <a href="/upload" id="upload_link">Загрузка файлов</a> |
+    
+    <a href="/login/exit">Выход</a>
+    
+</div>
+
+    <h2>Здравствуйте, {{ stud_name }}!</h2>
+    <h3>Добро пожаловать на страницу регистрации работ.</h3>
+    <p> Выберите календарный год начала курсовой работы : </p>
+    <ul>
+     {% for e in available_years %}
+    <li> <a href="/register/{{e.year}}">{{e.year}}</a> </li>
+
+    {% endfor %}
+    </ul>
+
+</div>
+
+            <hr>
+        </div>
+        <div class="footer">
+            <div style="width:450px;">
+            <address>
+                <!--i>Замечания по работе сервера: <a href="mailto:webmaster@cs.petrsu.ru">webmaster@cs.karelia.ru</a></i><br/-->
+                <i>Вопросы и замечания по системе Курс: <a href="mailto:chistyak@cs.petrsu.ru">Д.Б.Чистяков</a></i><br>
+                <i style="display:none">Последние изменения: <span id="webd_last_edited"></span></i>
+            </address>
+            </div>
+            <div style="width:550px; text-align:right; float:right;">
+                <i>Руководитель работы: заведующий кафедрой ИМО, Ю.А.Богоявленский</i><br>
+                <i>Разработчики: А.А.Андреев, В.М.Димитров</i><br>
+                <i>Системный администратор: М.А.Крышень</i>
+            </div>
+        </div>
+    
+</body></html>

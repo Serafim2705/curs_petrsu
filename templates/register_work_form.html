@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://kurs.cs.petrsu.ru/user/identity -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--        <link rel="stylesheet" href="{{url_for('static',filename='css/style_cs.css') }}">-->
+         <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+<!--        <link rel="stylesheet" type="text/css" href="./Курс_ регистрация работы_files/style_cs.css">-->
+<!--        <link media="all" rel="stylesheet" type="text/css" href="./Курс_ регистрация работы_files/webd.min.css">-->
+<!--        <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">-->
+    <link media="all" rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/webd.min.css') }}">
+     <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>
+        <script src="{{url_for('static',filename='js/webd.min1.js') }}"></script>
+<!--        <script src="./Курс_ регистрация работы_files/jquery.min.js"></script>-->
+<!--        <script src="{{url_for('static',filename='js/webd.min.js') }}"></script>-->
+<!--        <script src="{{url_for('static',filename='js/jquery.min.js') }}"></script>-->
+<!--        <script src="./Курс_ регистрация работы_files/webd.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <title>
+Курс: регистрация работы
+</title>
+    </head>
+    <body>
+
+        
+        <div align="center" class="header"><img src="{{url_for('static',filename='img/cs_logo.png') }}" align="left" alt=""><div align="right" style="float:right;text-align: center;"><img src="{{url_for('static',filename='img/tux.svg') }}" style="height:80px;" alt="(c) Larry Ewing, Simon Budig, Garrett LeSage" title="(c) Larry Ewing, Simon Budig, Garrett LeSage"><br><span style="font-size:12px;">с 1994 г.</span></div><h1 id="title"><a href="https://cs.petrsu.ru/">Кафедра Информатики и Математического Обеспечения</a></h1><a href="http://www.petrsu.ru/">ПетрГУ</a> |
+<a href="https://imit.petrsu.ru/">ИМиИТ</a> |
+<a href="https://cs.petrsu.ru/department/index.php.ru">О кафедре</a> |
+<a href="https://cs.petrsu.ru/projects.php.ru">Проекты</a> |
+<a href="https://cs.petrsu.ru/lab/index.php.ru">Лаборатория ИТС</a> |
+<a href="https://cs.petrsu.ru/fdpw/index.php.ru">Семинары НФИ/AMICT</a><br><a href="https://cs.petrsu.ru/staff/index.php.ru">Сотрудники</a> |
+<a href="https://cs.petrsu.ru/studies/index.php.ru">Учебный процесс</a> |
+<a href="https://cs.petrsu.ru/studies/tabel_kalendar_22-23.pdf">Табель-календарь</a> |
+<a href="https://cs.petrsu.ru/studies/kurs/kurs.php.ru">Курсовые и выпускные работы</a><br><a href="https://cs.petrsu.ru/facilities/index.php.ru">Вычислительные ресурсы</a> |
+<a href="https://cs.petrsu.ru/publications/index.php.ru">Публикации</a> |
+<a href="https://cs.petrsu.ru/news/index.php.ru">Архив новостей</a> |
+<a href="https://cs.petrsu.ru/contact/index.php.ru">Контактная информация</a><a href="https://cs.petrsu.ru/contact/index.php.en"> (English)</a><br clear="all"></div>
+        <div class="content">
+            <hr>
+            <h1><a href="https://kurs.cs.petrsu.ru/" id="webd_title">Система <span style="color:#0E0EB3;">Курс</span></a></h1>
+            
+<div id="webd_user">
+    <div class="webd_user_header">
+    <a href="/" id="search_link">К поиску и просмотру работ</a> |
+    <a href="https://kurs.cs.petrsu.ru/templates" id="templates_link">Шаблоны отчетов и
+        презентаций</a>
+    
+    |
+    
+    <a href="/register" id="identity_link" >Назад к выбору года</a> |
+    <a href="/upload" id="upload_link">Загрузка файлов</a> |
+    
+    <a href="/login/exit">Выход</a>
+    
+</div>
+
+    <h2>Здравствуйте, {{ stud_name }}!</h2>
+
+    <h2>Регистрационные данные за {{work_data.year}} уч. год</h2>
+	<h3>Курс: {{work_data.group[2]}}, Группа: {{work_data.group}}</h3>
+	
+    <hr>
+
+    {% if actual_year==True%}
+        <form class="webd_user_copy_form" method="POST" action="">
+            <input type="hidden" name="copy" value="true" >
+            <em><b>Если данные (кроме года регистрации) не изменились - нажмите кнопку</b> <input type="submit" value="Скопировать (селект для пред. года)" class="inp btn_copy" style="background-color: red;"></em>
+        </form>
+    {% endif %}
+    
+	<form class="webd_user_form" method="POST" >
+<!--        <input type="hidden" name="chosen_year" value="{% if chosen_year is defined %} {{chosen_year}} {%endif%}">-->
+		<em>Для регистрации полностью новой работы необходимо заполнить все поля ввода, отмеченные символом <span class="star">*</span>!</em>
+		<div title="Имя и отчество руководителя работы в формате &#39;И.О. Фамилия&#39;. Если руководителей несколько, то перечислить через запятую.">
+			<label for="adviser-name" class="user_form_label">
+                <span class="star">*</span>
+                Руководитель (в формате "И. О. Фамилия"):
+            </label>
+			<input type="text" id="adviser-name" name="adviser-name" class="user_adviser_name inp txt_inp"
+                   placeholder="И. О. Фамилия" style="width:400px"
+                   pattern="([А-Я|A-Z]\.\s?){1,2}[А-Я|A-Z][А-Я|A-Z|а-я|a-z]{0,20}(,\s?([А-Я|A-Z]\.\s?){1,2}[А-Я|A-Z][А-Я|A-Z|а-я|a-z]{0,20})*"
+                   required="required" value="{{work_data.tutor_name}}">
+		</div>
+		<div title="Должность, занимаемая руководителем работы. Например, &#39;преподаватель&#39;.">
+			<label for="adviser-position" class="user_form_label"><span class="star">*</span>Должность руководителя:</label>
+			<select name="adviser-position" id="adviser-position" class="user_adviser_position inp txt_inp" required="required">
+				<option value="" disabled="disabled" selected="selected"></option>
+                
+                <option value="преподаватель"
+                          {% if work_data.tutor_pos is defined %}
+                    {% if work_data.tutor_pos== 'преподаватель' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+
+                    преподаватель
+
+                </option>
+                
+                <option value="ст. преподаватель"
+
+
+
+                                  {% if work_data.tutor_pos is defined %}
+                    {% if work_data.tutor_pos== 'ст. преподаватель' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                 ст. преподаватель
+                </option>
+                
+                <option value="доцент"
+
+                {% if work_data.tutor_pos is defined %}
+                    {% if work_data.tutor_pos== 'доцент' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                     доцент
+                </option>
+                
+                <option value="профессор"
+
+                    {% if work_data.tutor_pos is defined %}
+                    {% if work_data.tutor_pos== 'профессор' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                        профессор
+                </option>
+                
+                <option value="заведующий кафедрой"
+
+
+                 {% if work_data.tutor_pos is defined %}
+                    {% if work_data.tutor_pos== 'заведующий кафедрой' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    заведующий кафедрой
+                </option>
+                
+                <option value="другая"
+
+                {% if work_data.tutor_pos is defined %}
+                    {% if work_data.tutor_pos== 'другая' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                  другая
+                </option>
+                
+			</select>
+		</div>
+		<div title="Ученая степень руководителя работы (учитывать только степени кандидата и доктора наук).">
+			<label for="adviser-status" class="user_form_label">Ученая степень руководителя:</label>
+			<input id="adviser-status" placeholder="к. т. н." type="text" name="adviser-status"
+                   class="user_adviser_status inp txt_inp" list="status-list" autocomplete="off" value= "{{ work_data.tutor_status }}" pattern="[А-Яа-яA-Za-z\.\-\s]*">
+			<datalist id="status-list">
+				<option value="без степени"
+                без степени
+                </option>
+				<option value="к. ф-м. н."
+
+                к. ф-м. н.</option>
+				<option value="д. ф-м. н."
+
+                д. ф-м. н.</option>
+				<option value="к. т. н."
+
+                к. т. н.</option>
+
+				<option value="д. т. н."
+
+                д. т. н.</option>
+				<option value="к. пед. н."
+
+                к. пед. н.</option>
+			</datalist>
+		</div>
+		<div title="Ученое звание руководителя работы. В России существуют звания &#39;доцент&#39; и &#39;профессор&#39;.">
+			<label for="adviser-rank" class="user_form_label">Ученое звание руководителя:</label>
+			<select id="adviser-rank" name="adviser-rank" class="user_adviser_rank inp txt_inp">
+				<option value="" ></option>
+                
+                <option value="без звания"
+                  {% if work_data.tutor_rank is defined %}
+                    {% if work_data.tutor_rank== 'без звания' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    без звания
+                </option>
+                
+                <option value="доцент"
+                 {% if work_data.tutor_rank is defined %}
+                    {% if work_data.tutor_rank== 'доцент' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    доцент
+                </option>
+                
+                <option value="профессор"
+                   {% if work_data.tutor_rank is defined %}
+                    {% if work_data.tutor_rank== 'профессор' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    профессор
+                </option>
+                
+			</select>
+		</div>
+		<div title="Определяется по кафедре, к которой приписан научный руководитель.">
+			<label for="department" class="user_form_label"><span class="star">*</span>Кафедра:</label>
+			<select id="department" name="department" class="user_department inp txt_inp" required="required">
+                <option value="" disabled="disabled" selected="selected"></option>
+                
+                <option value="ПМиК"
+                 {% if work_data.departament is defined %}
+                    {% if work_data.departament== 'ПМиК' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    ПМиК
+                </option>
+                
+                <option value="ИМО"
+                  {% if work_data.departament is defined %}
+                    {% if work_data.departament== 'ИМО' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    ИМО
+                </option>
+                
+                <option value="ГиТ"
+                 {% if work_data.departament is defined %}
+                    {% if work_data.departament== 'ГиТ' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    ГиТ
+                </option>
+                
+                <option value="МА"
+                 {% if work_data.departament is defined %}
+                    {% if work_data.departament== 'МА' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    МА
+                </option>
+                
+                <option value="ТВиАД"
+                 {% if work_data.departament is defined %}
+                    {% if work_data.departament== 'ТВиАД' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    ТВиАД
+                </option>
+                
+                <option value="ТМОМИ"
+                 {% if work_data.departament is defined %}
+                    {% if work_data.departament== 'ТМОМИ' %}
+                        selected="selected"
+                    {% endif %}
+                {% endif %}>
+                    ТМОМИ
+                </option>
+                
+			</select>
+		</div>
+		<div>
+			<label for="user_title" class="user_form_label" style="vertical-align:top"><span class="star">*</span>Тема работы:</label>
+			<textarea id="user_title" name="title" class="user_title inp" rows="3"
+                      style="width:400px" maxlength="250" required="required">{{ work_data.title }}</textarea>
+		</div>
+		<div><input type="submit" value="Отправить" class="inp btn_save" name="replace-type"></div>
+
+	</form>
+    {% if message is defined %}
+    {% if message !=None %}
+    <p> {{message}}</p>
+    {% endif %}
+    {% endif %}
+</div>
+
+            <hr>
+        </div>
+        <div class="footer">
+            <div style="width:450px;">
+            <address>
+                <!--i>Замечания по работе сервера: <a href="mailto:webmaster@cs.petrsu.ru">webmaster@cs.karelia.ru</a></i><br/-->
+                <i>Вопросы и замечания по системе Курс: <a href="mailto:chistyak@cs.petrsu.ru">Д.Б.Чистяков</a></i><br>
+                <i style="display:none">Последние изменения: <span id="webd_last_edited"></span></i>
+            </address>
+            </div>
+            <div style="width:550px; text-align:right; float:right;">
+                <i>Руководитель работы: заведующий кафедрой ИМО, Ю.А.Богоявленский</i><br>
+                <i>Разработчики: А.А.Андреев, В.М.Димитров</i><br>
+                <i>Системный администратор: М.А.Крышень</i>
+            </div>
+        </div>
+    
+</body></html>
